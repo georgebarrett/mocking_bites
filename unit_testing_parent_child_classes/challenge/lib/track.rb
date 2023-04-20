@@ -1,8 +1,9 @@
 class Track
-  def initialize(title, artist) # title and artist are both strings
+  def initialize(title, artist)
+    @title = title
   end
 
-  def matches?(keyword) # keyword is a string
-    # Returns true if the keyword matches either the title or artist
+  def matches?(keyword) 
+    return true if @title.include? keyword
   end
 end
