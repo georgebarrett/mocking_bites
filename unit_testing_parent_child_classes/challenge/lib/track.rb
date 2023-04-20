@@ -7,5 +7,6 @@ class Track
   def matches?(keyword) 
     return true if @title.include? keyword
     return true if @artist.include? keyword
+    return false
   end
 end
