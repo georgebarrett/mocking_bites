@@ -1,12 +1,12 @@
 class SecretDiary
-  def initialize(diary) # diary is an instance of Diary
-    # ...
+  def initialize(diary)
+    @diary = diary
+    @locked = true
   end
 
   def read
-    fail "Go away!"
-    # Returns the diary's contents if the diary is unlocked
-    # The diary starts off locked
+    fail "Go away!" if @locked
+    return @diary.read
   end
 
   def lock
@@ -15,7 +15,6 @@ class SecretDiary
   end
 
   def unlock
-    # Unlocks the diary
-    # Returns nothing
+    @locked = false
   end
 end
