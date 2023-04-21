@@ -8,4 +8,13 @@ RSpec.describe SecretDiary do
       expect { secret_diary.read }.to raise_error "Go away!"
     end
   end
+
+  context "when unlocked" do
+    it "reads the diary" do  
+      diary = double :diary, read: "fake content"
+      secret_diary = SecretDiary.new(diary)
+      secret_diary.unlock
+      expect(secret_diary.read).to eq "fake content"
+    end
+  end
 end

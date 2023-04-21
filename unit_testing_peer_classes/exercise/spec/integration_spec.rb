@@ -9,4 +9,13 @@ RSpec.describe "integration" do
       expect { secret_diary.read }.to raise_error "Go away!"
     end
   end
+
+  context "when it is unlocked" do
+    it "reads the diary contents" do
+      diary = Diary.new("some content")
+      secret_diary = SecretDiary.new(diary)
+      secret_diary.unlock
+      expect(secret_diary.read).to eq "some content"
+    end
+  end
 end
