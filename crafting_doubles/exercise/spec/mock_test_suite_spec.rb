@@ -1,17 +1,20 @@
 RSpec.describe "doubles" do
   # Change `xit` to `it` one by one as you work through.
 
-  xit "sets up a blank double" do
+  it "sets up a blank double" do
     # Set up your doubles here
-    fake_object = # ...
+    fake_object = double :fake_object
 
     # Don't edit below
     expect(fake_object).to be
   end
 
-  xit "sets up a double with methods" do
+  it "sets up a double with methods" do
     # Set up your doubles here
-    fake_object = # ...
+    fake_object = double :cat
+    allow(fake_object).to receive(:speak).and_return("Meow")
+    allow(fake_object).to receive(:count_ears).and_return(2)
+    allow(fake_object).to receive(:count_legs).and_return(4)
 
     # Don't edit below
     expect(fake_object.speak).to eq "Meow"
