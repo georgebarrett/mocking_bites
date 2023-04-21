@@ -46,8 +46,9 @@ RSpec.describe "doubles" do
     fake_object.speak("Steve")
   end
 
-  xit "creates a double for a specific case" do
+  it "creates a double for a specific case" do
     fake_diary = double :diary, add: nil
+    allow(fake_diary).to receive(:count_entries).and_return 2
     # Set up this double to pass the tests below
     # ...
 
