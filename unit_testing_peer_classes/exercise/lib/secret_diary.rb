@@ -4,7 +4,7 @@ class SecretDiary
   end
 
   def read
-    # Raises the error "Go away!" if the diary is locked
+    fail "Go away!"
     # Returns the diary's contents if the diary is unlocked
     # The diary starts off locked
   end
