@@ -22,9 +22,10 @@ RSpec.describe "doubles" do
     expect(fake_object.count_legs).to eq 4
   end
 
-  xit "sets up a double with methods that take arguments" do
+  it "sets up a double with methods that take arguments" do
     # Set up your doubles here
-    fake_object = # ...
+    fake_object = double :cat
+    allow(fake_object).to receive(:speak).with("Jess").and_return("Meow, Jess")
 
     # Don't edit below
     expect(fake_object.speak("Jess")).to eq "Meow, Jess"
