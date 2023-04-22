@@ -12,7 +12,7 @@ class InteractiveCalculator
     @terminal.puts "Please enter a number"
     number_1 = get_number
     @terminal.puts "Please enter another number"
-    number_2 = @terminal.gets.to_i
+    number_2 = get_number
     @terminal.puts "Here is your result:"
     @terminal.puts "#{number_1} - #{number_2} = #{number_1 - number_2}"
   end

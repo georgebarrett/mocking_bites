@@ -16,11 +16,24 @@ RSpec.describe InteractiveCalculator do
     interactive_calculator.run
   end
 
-  it "fails if string is given rather than an integer" do
+  it "fails if user gives a string for the first number" do
     terminal = double :terminal
     
     expect(terminal).to receive(:puts).with("Hello. I will subtract two numbers.").ordered
     expect(terminal).to receive(:puts).with("Please enter a number").ordered
+    expect(terminal).to receive(:gets).and_return("Autechre").ordered
+
+    interactive_calculator = InteractiveCalculator.new(terminal)
+    expect { interactive_calculator.run }.to raise_error "Please enter numbers only."
+  end
+
+  it "fails if user gives a string for the second number" do
+    terminal = double :terminal
+    
+    expect(terminal).to receive(:puts).with("Hello. I will subtract two numbers.").ordered
+    expect(terminal).to receive(:puts).with("Please enter a number").ordered
+    expect(terminal).to receive(:gets).and_return("45").ordered
+    expect(terminal).to receive(:puts).with("Please enter another number").ordered
     expect(terminal).to receive(:gets).and_return("Autechre").ordered
 
     interactive_calculator = InteractiveCalculator.new(terminal)
