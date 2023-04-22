@@ -8,5 +8,5 @@ RSpec.describe CatFacts do
     ).and_return('{"fact":"Neutering a male cat will, in almost all cases, stop him from spraying (territorial marking), fighting with other males (at least over females), as well as lengthen his life and improve its quality.","length":198}')
     cat_facts = CatFacts.new(fake_requester)
     expect(cat_facts.provide).to eq("Cat fact: Neutering a male cat will, in almost all cases, stop him from spraying (territorial marking), fighting with other males (at least over females), as well as lengthen his life and improve its quality.")
-  end
+  end 
 end
